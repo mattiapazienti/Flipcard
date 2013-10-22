@@ -1,0 +1,73 @@
+* {margin:0px; padding:0px;}
+body { overflow-y:hidden}
+html, body {height:100%; background:#ddd;}
+
+
+/* flipGo at 130px */
+.flipGo-wrapper {
+perspective: 1000;
+-webkit-perspective: 1000;
+position:absolute;
+width:130px !important;
+height:130px !important;
+left:50%;
+top:50%; 
+margin-left:-65px; 
+margin-top:-65px;
+padding:0 !important;
+background:transparent;  
+z-index:2;
+overflow:hidden;
+transition: all 2s ease-out 0s; 
+-webkit-transition: all 2s ease-out 0s; 
+-moz-transition: all 2s ease-out 0s
+}
+
+/* flip on hover */
+.flipGo-wrapper:hover .flipGo, .flipGo-wrapper.hover .flipGo {
+transform: rotateY(180deg);
+-webkit-transform: rotateY(180deg);
+}
+
+.flipGo-wrapper, .front, .rear {
+width: 130px;
+height: 130px;
+}
+
+/* flip speed */
+.flipGo {
+transition: 0.6s;
+-webkit-transition: 0.6s;
+transform-style: preserve-3d;
+position: relative;
+-webkit-transform-style: preserve-3d;
+}
+
+/* hide rear on swap */
+.front, .rear {
+backface-visibility: hidden;
+-webkit-backface-visibility: hidden;
+position: absolute;
+top: 0;
+left: 0;
+cursor:pointer;
+border-radius:65px;
+-webkit-border-radius:65px;
+-moz-border-radius:65px;
+-o-border-radius:65px;
+}
+
+/* front pane index over rear */
+.front {
+z-index: 2;
+background:#000;
+}
+
+/* rear */
+.rear {
+transform: rotateY(180deg);
+-webkit-transform: rotateY(180deg);
+background:#f00;
+}
+
+.front a, .rear a {display:block; height:130px; width:130px}
